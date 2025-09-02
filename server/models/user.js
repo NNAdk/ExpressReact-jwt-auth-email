@@ -13,7 +13,7 @@ const UserSchema = new mongoose.Schema ({
     },
     isActivated: {
         type: Boolean,
-        default: true,
+        default: false,
     },
     activationlink: {
         type: String

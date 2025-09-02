@@ -1,11 +1,13 @@
+import 'dotenv/config';  // сразу первой строкой
+
 import express from "express";
 import cors from 'cors';
 import cookieParser from "cookie-parser";
-import dotenv from 'dotenv';
 import mongoose from "mongoose";
 import router from "./router/index.js";
 
-dotenv.config();
+import { emailService } from './service/email-service.js';
+import { userService } from './service/user-service.js';
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -18,8 +20,7 @@ app.use('/api', router);
 const start = async () => {
     try {
         await mongoose.connect(process.env.DB_URI)
-        .then(() => console.log('DB CONNECTED'))
-        .catch((err) => console.log('error: ',err))
+        console.log('DB CONNECTED')
     
         app.listen(PORT, () => console.log('SERVER UP'));
     } catch (err) {
@@ -27,5 +28,4 @@ const start = async () => {
     }
 }
 
-
-start ();
+start();
