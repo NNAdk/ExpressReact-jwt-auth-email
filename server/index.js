@@ -1,4 +1,4 @@
-import 'dotenv/config';  // сразу первой строкой
+import 'dotenv/config';  
 
 import express from "express";
 import cors from 'cors';
